@@ -1,0 +1,38 @@
+ALGORITHM algorithm_SUM
+VAR
+htab:HASH_TABLE<INTEGER,INTEGER>
+i,j,SUM:INTEGER;
+str1:STRING[10]
+str2:STRING[10]
+
+read(str1);
+read(str2);
+BEGIN
+FOR i FROM 0 TO set1.LENGTH-1 STEP 1  DO
+X:BOOLEAN:=FALSE ;
+J:=0;
+WHILE(x)
+if (str1[i]==str2[i])
+X:=TRUE
+J++
+END_WHILE
+IF X:=FALSE
+SUM +=str1[i]
+END_FOR
+
+FOR i FROM 0 TO set2.LENGTH-1 STEP 1  DO
+X:BOOLEAN:=FALSE ;
+J:=0;
+WHILE(x)
+if (str2[i]==str[i])
+X:=TRUE
+J++
+END_WHILE
+IF X:=FALSE
+SUM +=str[i]
+END_FOR
+Write("the sum of the distinct element is",SUM)
+
+END
+
+
