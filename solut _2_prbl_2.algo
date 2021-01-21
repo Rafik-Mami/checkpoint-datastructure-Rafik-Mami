@@ -1,50 +1,43 @@
 ALGORITHM algorithm_SUM
 VAR
 htab:HASH_TABLE<INTEGER,INTEGER>
-i,j,SUM:INTEGER;
-str1:STRING[10]
-str2:STRING[10]
-
-read(str1);
-read(str2);
-FOR i FROM 0 TO str1.LENGTH-1 STEP 1 DO
+i,j,sum:INTEGER;
+set1:ARRAY OF INTEGER[20]
+set2:ARRAY OF INTEGER[20]
+BEGIN
+read(set1);
+read(set2);
+FOR i FROM 0 TO set1.LENGTH-1 STEP 1 DO
 
  IF (htab.lookup(str1[i]) ==TRUE) THEN
-           count := htab.get(str1[i]);
-           htab.insert(str1[i],count+1);
+           count := htab.get(set1[i]);
+           htab.insert(set1[i],count+1);
        ELSE
-           htab.insert(str1[i],1);
+           htab.insert(set1[i],1);
        END_IF
-   END_FOR
-   END_FOR
-
-FOR i FROM 0 TO str2.LENGTH-1 STEP 1 DO
-
- IF (htab.lookup(str2[i]) == TRUE) THEN
-           count := htab.get(str2[i]); 
-           htab.insert(str2[i],count+1);
-       ELSE
-           htab.insert(str2[i],1);
-       END_IF
-   END_FOR
    
-      sum :=0;
-FOR i FROM 0 TO str1.length-1 STEP 1 DO
-       IF (htab.get(str1[i]) > 1) THEN
-           sum += str1[i];
+   END_FOR
+
+FOR i FROM 0 TO set2.LENGTH-1 STEP 1 DO
+
+ IF (htab.lookup(set2[i]) ==TRUE) THEN
+           count := htab.get(set2[i]);
+           htab.insert(set2[i],count+1);
+       ELSE
+           htab.insert(set2[i],1);
+       END_IF
+   END_FOR
+
+   //sum of distinct elements
+   sum :=0;
+
+   
+FOR i FROM 0 TO keys.length-1 STEP 1 DO
+         keys_of_elements=htab.getkeys()
+       IF (htab.get(keys_of_elements[i])> 1) THEN
+           sum += keys_of_elements[i];
            BREAK;
        END_IF
    END_FOR
-   
-FOR i FROM 0 TO str2.length-1 STEP 1 DO
-       IF (htab.get(str2[i]) > 1) THEN
-           sum += str2[i];
-           BREAK;
-       END_IF
-   END_FOR
- 
-Write ("the sum of overlapping elements in two sets is",SUM)
-
+   Write("the sum of the distinct element is",SUM)
 END
-
-
